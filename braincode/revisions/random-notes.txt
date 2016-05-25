@@ -1,0 +1,219 @@
+TODO: revise what else do these Florian digested hdf5 files have:
+  - z spacing
+  - should we use "staining"?
+  - etc
+Also look at the CSVs at GLomeruliCLustering_final/FLorian20150325/glomeruli+np_staining(1).zip
+
+Would xarray be of help here?
+  https://github.com/pydata/xarray
+Maybe xarray could lead to nicer code here
+
+Online resources:
+ http://brainbase.imp.ac.at/
+ https://strawlab.org/braincode
+
+Good to know: np.dstack can be quite slow.
+If we allow access to z-slices, we better stack ourselves:
+  http://stackoverflow.com/questions/23416888/
+  stack-images-as-numpy-array-faster-than-preallocation
+Some other suggestions on iterating over arbitrary dimensions
+  http://stackoverflow.com/questions/1589706/iterating-over-arbitrary-dimension-of-numpy-array
+
+N.B. CB1 are zip-compressed, T1 are uncompressed or RLEd
+
+An ideal data format for these images, beyond amiras / nrrd (which are performant already!)
+would be an open standard allowing fast retrieval, compact storage and openable by tools...
+A possible idea:
+  http://fiji.sc/BigDataViewer#About_the_BigDataViewer_data_format
+And do not forget to store things like bounding-box / voxel size
+
+h5py and HDF5 Compression filters:
+  - szip is not present with all hdf5 installations
+  - lzf comes as a filter with h5py, so not really easily interoperable
+  - so go for gzip or non-compression when interoperability is a concern
+
+The lsm original images have been taken by different technicians with possible different
+setups. There is a "background" magenta channel that is got using staining: putting the brains
+on a solution and blah blah blah. If we assume that the staining protocol was the same for
+each technician and therefore that it remains stable accross lines, we could use this channel
+to normalise the images to a common intensity frame of reference, making them fully comparable and
+maybe helping to tame the perils of high background noise.
+When these amira files were aligned to the template, was intensity also somehow normalised?
+If needed, this might be already stored in the "staining" CSVs from Florian or, alternatively,
+we might need to go to the LSMs (?).
+
+-----------------------------------------------------
+
+#
+# For these images, using the 99% percentile make the threshold 0, so all gets selected with our old implementation...
+#
+# CB1_GMR_11F06_AE_01_09-fA01b_C090923_20090923111650032_02_warp_m0g80c8e1e-1x26r301 does not look very sparse (100% non-zero)...
+# CB1_GMR_12B01_AE_01_03-fA01b_C091202_20091202094754516_02_warp_m0g80c8e1e-1x26r301 does not look very sparse (100% non-zero)...
+# CB1_GMR_12F08_AE_01_09-fA01b_C100227_20100301104016062_02_warp_m0g80c8e1e-1x26r301 does not look very sparse (100% non-zero)...
+# CB1_GMR_16F06_AE_01_15-fA01b_C100224_20100224102330901_02_warp_m0g80c8e1e-1x26r301 does not look very sparse (100% non-zero)...
+# CB1_GMR_17C02_AE_01_05-fA01b_C100225_20100225103142166_02_warp_m0g80c8e1e-1x26r301 does not look very sparse (100% non-zero)...
+# CB1_GMR_17D09_AE_01_11-fA01b_C100225_20100225103706244_02_warp_m0g80c8e1e-1x26r301 does not look very sparse (100% non-zero)...
+# CB1_GMR_17G06_AE_01_05-fA01b_C090930_20090930110155842_02_warp_m0g80c8e1e-1x26r301 does not look very sparse (100% non-zero)...
+# CB1_GMR_19C06_AE_01_06-fA01b_C100323_20100323115400812_02_warp_m0g80c8e1e-1x26r301 does not look very sparse (100% non-zero)...
+# CB1_GMR_24E05_AE_01_04-fA01b_C100505_20100505214435484_02_warp_m0g80c8e1e-1x26r301 does not look very sparse (100% non-zero)...
+# CB1_GMR_26H06_AE_01_03-fA01b_C100509_20100510220939906_02_warp_m0g80c8e1e-1x26r301 does not look very sparse (100% non-zero)...
+# CB1_GMR_29B06_AE_01_05-fA01b_C110216_20110216094444968_02_warp_m0g80c8e1e-1x26r301 does not look very sparse (100% non-zero)...
+# CB1_GMR_29C08_AE_01_04-fA01b_C100105_20100105114955694_02_warp_m0g80c8e1e-1x26r301 does not look very sparse (100% non-zero)...
+# CB1_GMR_31A02_AE_01_04-fA01b_C100117_20100118095807364_02_warp_m0g80c8e1e-1x26r301 does not look very sparse (100% non-zero)...
+# CB1_GMR_40C11_AE_01_07-fA01b_C091106_20091106140007838_02_warp_m0g80c8e1e-1x26r301 does not look very sparse (100% non-zero)...
+# CB1_GMR_40D05_AE_01_05-fA01b_C100609_20100610020217015_02_warp_m0g80c8e1e-1x26r301 does not look very sparse (100% non-zero)...
+# CB1_GMR_45G05_AE_01_04-fA01b_C100606_20100607220502343_02_warp_m0g80c8e1e-1x26r301 does not look very sparse (100% non-zero)...
+# CB1_GMR_46H04_AE_01_06-fA01b_C100804_20100805100622703_02_warp_m0g80c8e1e-1x26r301 does not look very sparse (100% non-zero)...
+# CB1_GMR_47D04_AE_01_03-fA01b_C100605_20100606105654593_02_warp_m0g80c8e1e-1x26r301 does not look very sparse (100% non-zero)...
+# CB1_GMR_48B01_AE_01_05-fA01b_C100113_20100113102238301_02_warp_m0g80c8e1e-1x26r301 does not look very sparse (100% non-zero)...
+# CB1_GMR_50D05_AE_01_00-fA01b_C090226_20090226153315765_02_warp_m0g80c8e1e-1x26r301 does not look very sparse (100% non-zero)...
+# CB1_GMR_53A10_AE_01_03-fA01b_C110208_20110208100440656_02_warp_m0g80c8e1e-1x26r301 does not look very sparse (100% non-zero)...
+# CB1_GMR_54H03_AE_01_00-fA01b_C090723_20090723135054449_02_warp_m0g80c8e1e-1x26r301 does not look very sparse (100% non-zero)...
+# CB1_GMR_55H09_AE_01_00-fA01b_C090730_20090730101855765_02_warp_m0g80c8e1e-1x26r301 does not look very sparse (100% non-zero)...
+# CB1_GMR_56C09_AE_01_05-fA01b_C100115_20100115100943935_02_warp_m0g80c8e1e-1x26r301 does not look very sparse (100% non-zero)...
+# CB1_GMR_56E09_AE_01_01-fA01b_C090213_20090213112011234_02_warp_m0g80c8e1e-1x26r301 does not look very sparse (100% non-zero)...
+# CB1_GMR_56H03_AE_01_02-fA01b_C090826_20090826105806781_02_warp_m0g80c8e1e-1x26r301 does not look very sparse (100% non-zero)...
+# CB1_GMR_58D06_AE_01_03-fA01b_C110315_20110315103833375_02_warp_m0g80c8e1e-1x26r301 does not look very sparse (100% non-zero)...
+# CB1_GMR_65G09_AE_01_02-fA01b_C091014_20091014115521906_02_warp_m0g80c8e1e-1x26r301 does not look very sparse (100% non-zero)...
+# CB1_GMR_69H04_AE_01_02-fA01b_C101110_20101110102526921_02_warp_m0g80c8e1e-1x26r301 does not look very sparse (100% non-zero)...
+# CB1_GMR_70C12_AE_01_00-fA01b_C100727_20100727221029187_02_warp_m0g80c8e1e-1x26r301 does not look very sparse (100% non-zero)...
+# CB1_GMR_74F02_AE_01_03-fA01b_C100312_20100312105207351_02_warp_m0g80c8e1e-1x26r301 does not look very sparse (100% non-zero)...
+# CB1_GMR_78A12_AE_01_02-fA01b_C100416_20100416220353046_02_warp_m0g80c8e1e-1x26r301 does not look very sparse (100% non-zero)...
+# CB1_GMR_78E02_AE_01_00-fA01b_C100416_20100416221132593_02_warp_m0g80c8e1e-1x26r301 does not look very sparse (100% non-zero)...
+# CB1_GMR_79D08_AE_01_00-fA01b_C100205_20100205095940248_02_warp_m0g80c8e1e-1x26r301 does not look very sparse (100% non-zero)...
+# CB1_GMR_80H06_AE_01_02-fA01b_C100206_20100207131058031_02_warp_m0g80c8e1e-1x26r301 does not look very sparse (100% non-zero)...
+# CB1_GMR_80H08_AE_01_01-fA01b_C110128_20110201095733328_02_warp_m0g80c8e1e-1x26r301 does not look very sparse (100% non-zero)...
+# CB1_GMR_94E01_AE_01_00-fA01b_C100828_20100831101829156_02_warp_m0g80c8e1e-1x26r301 does not look very sparse (100% non-zero)...
+# CB1_GMR_9A08_AE_01_00-fA01b_C090820_20090821132852484_02_warp_m0g80c8e1e-1x26r301 does not look very sparse (100% non-zero)...
+#
+
+-----------------------------------------------------
+
+def consolidate_conversation():
+    hdf_file = op.expanduser('~/strawscience/santi/andrew/clustering-paper/braincode/CB1/'
+                             'images/pipeline=cb1_orig_wannabe/consolidated.h5')
+    with h5py.File(hdf_file, 'r') as h5:
+        indices = h5['indices'][()]
+        indptr = h5['indptr'][()]
+        shape = h5['shape'][()]
+        data = np.ones(len(indices), dtype=np.bool)
+        X = csr_matrix((data, indices, indptr), shape=shape)
+        print('Stream 100 voxels')
+        start = time.time()
+        print(X[:, range(1, 1000, 10)].shape)
+        print('%.2f s' % (time.time() - start))
+        # This CSC matrix is also not ideal to stream voxel data...
+        Xt = X.T
+        print('Stream 100 voxels')
+        start = time.time()
+        print(Xt[range(1, 1000, 10)].shape)
+        print('%.2f s' % (time.time() - start))
+        # Of course, csr with voxels per rows rocks
+        # But beware: tocsr, of course explodes the indptr array to num_voxels size
+        # So more memory, but faster access to voxel data (and easy to stream from disk too)
+        print('To CSR, voxels per rows')
+        start = time.time()
+        X = Xt.tocsr()
+        print('%.2f s' % (time.time() - start))
+        print(X.indices.dtype)
+        print('Stream 100 voxels')
+        start = time.time()
+        print(X[range(1, 1000, 10)].shape)
+        print('%.2f s' % (time.time() - start))
+        # So this is the layout we want both in disk and memory
+        # For less aggresive binarisation and downsamplings we will need to be cleverer on storage
+        # And generate the data using several passes and intermediate files in disk
+        # Also it is now obvious that compression without sparse representation is maybe the way to go
+        # (see old jagged results). The images zipped are much smaller than the sparse hdf5...
+        # So...
+
+-----------------------------------------------------
+
+#
+# --- Original image processing pipeline reproduction wannabe
+#  From the paper:
+#   1- Thresholding to get a 1% voxels per image
+#   2- Morphological opening with a 3x3x3 kernel to reduce clutter
+#   3- To decrease the effects of registration error and image acquisition noise
+#      and to speedup computations, images were binned into larger voxels,
+#      typically a 3x3x3 downsampling.
+#
+#  When is the mask applied? Before 1, before 2 or before 3?
+#  Is this the correct order?
+#  How was the downsampled image kept binary? -> Nearest neighbor
+#
+#  What about querying and going back to the original pixels?
+#   - First the mask is defined in the original file
+#   - To go back, should we resize with 1 / zoom?
+#
+#  Also, probably there are differences on the actual algorithms / implementations used.
+#  At any step this can happen. Simple example with thresholding:
+#    a) forcing exactly 1% vs b) using an interpolated percentile
+#
+
+-----------------------------------------------------
+
+# TODO: We should remove output from these pipelines id string
+# And make this work for functions in whatami (far from trivial)
+# zoom = whatable(zoom, non_id_keys=('output',))
+# print(what2id(zoom))
+# binary_opening = whatable(binary_opening, non_id_keys=('output',))
+
+-----------------------------------------------------
+
+#
+# Wikipedia dendogram...
+#   https://en.wikipedia.org/wiki/Dendrogram
+#
+# Scipy cluster docs:
+#   http://docs.scipy.org/doc/scipy/reference/cluster.hierarchy.html#module-scipy.cluster.hierarchy
+# N.B. regardless of the docs, scipy linkage does not compute correctly if given a redundant distance matrix
+#   https://github.com/mwaskom/seaborn/pull/621
+#   https://github.com/scipy/scipy/issues/2614
+#
+# This is a *pretty very nice and relevant* tutorial to hierarchical clustering in python:
+#   https://joernhees.de/blog/2015/08/26/scipy-hierarchical-clustering-and-dendrogram-tutorial/
+#
+# Some example dendograms in google images (and what people look more, including variants like "polar"):
+#   https://www.google.at/search?
+#   q=dendrogram&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjdvPPri7HLAhVGtxoKHURcBUUQ_AUIBygB&biw=1920&bih=889
+#
+# Most "javascript dendogram" examples I have seen (usually for d3) do not plot the dendogram,
+# but just the hierarchical structure with regard to the weights. For example:
+#   http://stackoverflow.com/questions/19964266/scipy-dendrogram-to-json-for-d3-js-tree-visualisation
+#   https://gist.github.com/mdml/7537455
+#
+# Honorable exceptions:
+#   dendroNetwork: http://christophergandrud.github.io/networkD3/
+#                  does this mean that d3 support dendograms now, or they have their own stuff
+#   this italian series of blogposts:
+#     http://www.meccanismocomplesso.org/en/dendrogramma-d3-parte1/
+#     http://www.meccanismocomplesso.org/en/dendrogramma-d3-parte2/
+#     http://www.meccanismocomplesso.org/en/dendrogramma-d3-parte3/  # edge lengths based on clusters distance
+#     http://www.meccanismocomplesso.org/en/dendrogramma-d3-parte4/  # a bit over the top reordering of leaves
+#     http://www.meccanismocomplesso.org/en/circular-dendrograms/    # bonus!
+#
+# If we go for our own component, we would get faster by letting scipy to compute the dendogram for us:
+#   http://stackoverflow.com/questions/11917779/how-to-plot-and-annotate-hierarchical-clustering-dendrograms-in-scipy-matplotlib
+#   http://stackoverflow.com/questions/16883412/how-do-i-get-the-subtrees-of-dendrogram-made-by-scipy-cluster-hierarchy
+#
+# These are cool examples from a cool library from R; highlight results differences between linkage methods:
+#   http://htmlpreview.github.io/?https://github.com/talgalili/dendextend/blob/master/inst/ignored/
+#   Hierarchical%20cluster%20analysis%20on%20famous%20data%20sets%20-%20enhanced%20with%20the%20dendextend%20package.html
+#
+
+-----------------------------------------------------
+
+#
+# Unfortunatelly format does not allow partial formatting; several workarounds:
+#  http://stackoverflow.com/questions/11283961/partial-string-formatting
+#
+
+-----------------------------------------------------
+
+# Also beware, it seems there is a random little voxel volume in CB1-Antennal_lobe;
+# See for example cluster 44 here:
+#   https://strawlab.org/braincode/r1/clusters/Antennal_lobe/CB1/K60_dicedist/44
+# I guess it comes from some bug in Florian's code. These artifacts are actually quite common.
+
+-----------------------------------------------------

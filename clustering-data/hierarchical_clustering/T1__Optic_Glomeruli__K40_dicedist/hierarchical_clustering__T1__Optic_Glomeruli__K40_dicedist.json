@@ -1,0 +1,483 @@
+{
+  "clusterer": "K40_dicedist", 
+  "cophenetic_correlation": 0.84640446846205908, 
+  "dataset": "T1", 
+  "dendrogram": "default", 
+  "linkage": "average", 
+  "region": "Optic_Glomeruli", 
+  "tree": {
+    "count": 40, 
+    "distance": 0.98657203179139341, 
+    "id": 79, 
+    "left": {
+      "count": 1, 
+      "distance": 0, 
+      "id": 15, 
+      "left": null, 
+      "right": null
+    }, 
+    "right": {
+      "count": 39, 
+      "distance": 0.98443759029561806, 
+      "id": 78, 
+      "left": {
+        "count": 6, 
+        "distance": 0.88578211516141891, 
+        "id": 58, 
+        "left": {
+          "count": 2, 
+          "distance": 0.76572698354721069, 
+          "id": 45, 
+          "left": {
+            "count": 1, 
+            "distance": 0, 
+            "id": 5, 
+            "left": null, 
+            "right": null
+          }, 
+          "right": {
+            "count": 1, 
+            "distance": 0, 
+            "id": 21, 
+            "left": null, 
+            "right": null
+          }
+        }, 
+        "right": {
+          "count": 4, 
+          "distance": 0.86114343007405592, 
+          "id": 54, 
+          "left": {
+            "count": 1, 
+            "distance": 0, 
+            "id": 38, 
+            "left": null, 
+            "right": null
+          }, 
+          "right": {
+            "count": 3, 
+            "distance": 0.84312400221824646, 
+            "id": 50, 
+            "left": {
+              "count": 1, 
+              "distance": 0, 
+              "id": 27, 
+              "left": null, 
+              "right": null
+            }, 
+            "right": {
+              "count": 2, 
+              "distance": 0.70472997426986694, 
+              "id": 41, 
+              "left": {
+                "count": 1, 
+                "distance": 0, 
+                "id": 19, 
+                "left": null, 
+                "right": null
+              }, 
+              "right": {
+                "count": 1, 
+                "distance": 0, 
+                "id": 39, 
+                "left": null, 
+                "right": null
+              }
+            }
+          }
+        }
+      }, 
+      "right": {
+        "count": 33, 
+        "distance": 0.98101888630125234, 
+        "id": 77, 
+        "left": {
+          "count": 3, 
+          "distance": 0.93027466535568237, 
+          "id": 67, 
+          "left": {
+            "count": 1, 
+            "distance": 0, 
+            "id": 10, 
+            "left": null, 
+            "right": null
+          }, 
+          "right": {
+            "count": 2, 
+            "distance": 0.88685786724090576, 
+            "id": 59, 
+            "left": {
+              "count": 1, 
+              "distance": 0, 
+              "id": 12, 
+              "left": null, 
+              "right": null
+            }, 
+            "right": {
+              "count": 1, 
+              "distance": 0, 
+              "id": 33, 
+              "left": null, 
+              "right": null
+            }
+          }
+        }, 
+        "right": {
+          "count": 30, 
+          "distance": 0.97680289772423823, 
+          "id": 76, 
+          "left": {
+            "count": 8, 
+            "distance": 0.96634641289710999, 
+            "id": 74, 
+            "left": {
+              "count": 2, 
+              "distance": 0.86223864555358887, 
+              "id": 55, 
+              "left": {
+                "count": 1, 
+                "distance": 0, 
+                "id": 14, 
+                "left": null, 
+                "right": null
+              }, 
+              "right": {
+                "count": 1, 
+                "distance": 0, 
+                "id": 35, 
+                "left": null, 
+                "right": null
+              }
+            }, 
+            "right": {
+              "count": 6, 
+              "distance": 0.94416528277926959, 
+              "id": 71, 
+              "left": {
+                "count": 3, 
+                "distance": 0.92660865187644958, 
+                "id": 66, 
+                "left": {
+                  "count": 1, 
+                  "distance": 0, 
+                  "id": 36, 
+                  "left": null, 
+                  "right": null
+                }, 
+                "right": {
+                  "count": 2, 
+                  "distance": 0.88420480489730835, 
+                  "id": 57, 
+                  "left": {
+                    "count": 1, 
+                    "distance": 0, 
+                    "id": 6, 
+                    "left": null, 
+                    "right": null
+                  }, 
+                  "right": {
+                    "count": 1, 
+                    "distance": 0, 
+                    "id": 17, 
+                    "left": null, 
+                    "right": null
+                  }
+                }
+              }, 
+              "right": {
+                "count": 3, 
+                "distance": 0.93223196268081665, 
+                "id": 68, 
+                "left": {
+                  "count": 1, 
+                  "distance": 0, 
+                  "id": 37, 
+                  "left": null, 
+                  "right": null
+                }, 
+                "right": {
+                  "count": 2, 
+                  "distance": 0.89019817113876343, 
+                  "id": 60, 
+                  "left": {
+                    "count": 1, 
+                    "distance": 0, 
+                    "id": 2, 
+                    "left": null, 
+                    "right": null
+                  }, 
+                  "right": {
+                    "count": 1, 
+                    "distance": 0, 
+                    "id": 13, 
+                    "left": null, 
+                    "right": null
+                  }
+                }
+              }
+            }
+          }, 
+          "right": {
+            "count": 22, 
+            "distance": 0.97159570157527919, 
+            "id": 75, 
+            "left": {
+              "count": 12, 
+              "distance": 0.93686917509351464, 
+              "id": 69, 
+              "left": {
+                "count": 5, 
+                "distance": 0.91455280780792236, 
+                "id": 63, 
+                "left": {
+                  "count": 1, 
+                  "distance": 0, 
+                  "id": 3, 
+                  "left": null, 
+                  "right": null
+                }, 
+                "right": {
+                  "count": 4, 
+                  "distance": 0.85448223352432251, 
+                  "id": 52, 
+                  "left": {
+                    "count": 1, 
+                    "distance": 0, 
+                    "id": 40, 
+                    "left": null, 
+                    "right": null
+                  }, 
+                  "right": {
+                    "count": 3, 
+                    "distance": 0.7840782105922699, 
+                    "id": 46, 
+                    "left": {
+                      "count": 1, 
+                      "distance": 0, 
+                      "id": 9, 
+                      "left": null, 
+                      "right": null
+                    }, 
+                    "right": {
+                      "count": 2, 
+                      "distance": 0.75929611921310425, 
+                      "id": 43, 
+                      "left": {
+                        "count": 1, 
+                        "distance": 0, 
+                        "id": 11, 
+                        "left": null, 
+                        "right": null
+                      }, 
+                      "right": {
+                        "count": 1, 
+                        "distance": 0, 
+                        "id": 18, 
+                        "left": null, 
+                        "right": null
+                      }
+                    }
+                  }
+                }
+              }, 
+              "right": {
+                "count": 7, 
+                "distance": 0.92056451439857478, 
+                "id": 64, 
+                "left": {
+                  "count": 2, 
+                  "distance": 0.84574097394943237, 
+                  "id": 51, 
+                  "left": {
+                    "count": 1, 
+                    "distance": 0, 
+                    "id": 26, 
+                    "left": null, 
+                    "right": null
+                  }, 
+                  "right": {
+                    "count": 1, 
+                    "distance": 0, 
+                    "id": 32, 
+                    "left": null, 
+                    "right": null
+                  }
+                }, 
+                "right": {
+                  "count": 5, 
+                  "distance": 0.86285347739855434, 
+                  "id": 56, 
+                  "left": {
+                    "count": 2, 
+                    "distance": 0.79270321130752563, 
+                    "id": 47, 
+                    "left": {
+                      "count": 1, 
+                      "distance": 0, 
+                      "id": 8, 
+                      "left": null, 
+                      "right": null
+                    }, 
+                    "right": {
+                      "count": 1, 
+                      "distance": 0, 
+                      "id": 30, 
+                      "left": null, 
+                      "right": null
+                    }
+                  }, 
+                  "right": {
+                    "count": 3, 
+                    "distance": 0.83146283030509949, 
+                    "id": 48, 
+                    "left": {
+                      "count": 1, 
+                      "distance": 0, 
+                      "id": 31, 
+                      "left": null, 
+                      "right": null
+                    }, 
+                    "right": {
+                      "count": 2, 
+                      "distance": 0.76068061590194702, 
+                      "id": 44, 
+                      "left": {
+                        "count": 1, 
+                        "distance": 0, 
+                        "id": 1, 
+                        "left": null, 
+                        "right": null
+                      }, 
+                      "right": {
+                        "count": 1, 
+                        "distance": 0, 
+                        "id": 16, 
+                        "left": null, 
+                        "right": null
+                      }
+                    }
+                  }
+                }
+              }
+            }, 
+            "right": {
+              "count": 10, 
+              "distance": 0.96248337129751826, 
+              "id": 73, 
+              "left": {
+                "count": 4, 
+                "distance": 0.94236107170581818, 
+                "id": 70, 
+                "left": {
+                  "count": 2, 
+                  "distance": 0.8610338568687439, 
+                  "id": 53, 
+                  "left": {
+                    "count": 1, 
+                    "distance": 0, 
+                    "id": 22, 
+                    "left": null, 
+                    "right": null
+                  }, 
+                  "right": {
+                    "count": 1, 
+                    "distance": 0, 
+                    "id": 24, 
+                    "left": null, 
+                    "right": null
+                  }
+                }, 
+                "right": {
+                  "count": 2, 
+                  "distance": 0.90138781070709229, 
+                  "id": 62, 
+                  "left": {
+                    "count": 1, 
+                    "distance": 0, 
+                    "id": 4, 
+                    "left": null, 
+                    "right": null
+                  }, 
+                  "right": {
+                    "count": 1, 
+                    "distance": 0, 
+                    "id": 20, 
+                    "left": null, 
+                    "right": null
+                  }
+                }
+              }, 
+              "right": {
+                "count": 6, 
+                "distance": 0.94567381590604782, 
+                "id": 72, 
+                "left": {
+                  "count": 2, 
+                  "distance": 0.75016868114471436, 
+                  "id": 42, 
+                  "left": {
+                    "count": 1, 
+                    "distance": 0, 
+                    "id": 23, 
+                    "left": null, 
+                    "right": null
+                  }, 
+                  "right": {
+                    "count": 1, 
+                    "distance": 0, 
+                    "id": 29, 
+                    "left": null, 
+                    "right": null
+                  }
+                }, 
+                "right": {
+                  "count": 4, 
+                  "distance": 0.92120425403118134, 
+                  "id": 65, 
+                  "left": {
+                    "count": 2, 
+                    "distance": 0.83464318513870239, 
+                    "id": 49, 
+                    "left": {
+                      "count": 1, 
+                      "distance": 0, 
+                      "id": 7, 
+                      "left": null, 
+                      "right": null
+                    }, 
+                    "right": {
+                      "count": 1, 
+                      "distance": 0, 
+                      "id": 34, 
+                      "left": null, 
+                      "right": null
+                    }
+                  }, 
+                  "right": {
+                    "count": 2, 
+                    "distance": 0.89871704578399658, 
+                    "id": 61, 
+                    "left": {
+                      "count": 1, 
+                      "distance": 0, 
+                      "id": 25, 
+                      "left": null, 
+                      "right": null
+                    }, 
+                    "right": {
+                      "count": 1, 
+                      "distance": 0, 
+                      "id": 28, 
+                      "left": null, 
+                      "right": null
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
